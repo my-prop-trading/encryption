@@ -90,8 +90,8 @@ impl AesDecryptedData {
         self.data
     }
 
-    pub fn into_string(self) -> String {
-        String::from_utf8(self.data).unwrap()
+    pub fn into_string(self) -> Result<String, std::string::FromUtf8Error> {
+        String::from_utf8(self.data)
     }
 }
 
